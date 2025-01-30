@@ -1,0 +1,114 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Source.luau"))()
+
+local Window = MakeWindow({
+    Title = "Mo's Academy",
+    SubTitle = "By Lofi",
+    Theme = "Dark",
+    Acrylic = true,
+    KeySystem = {
+        Active = false,
+        KeyTitle = "Key System",
+        KeyDescription = "Key System Description",
+        Keys = {"Key1", "Key2", "Key3"},
+        KeyLink = "pastebin.com/"
+    }
+})
+
+local Notify = NewNotify({
+    Title = "Reminder",
+    Description = "Enjoy The Script",
+    Time = 10
+})
+
+-- Tab for Food Items
+local FoodTab = NewTab({Name = "Foods", Icon = "ImageIdHere"})
+
+AddButton(FoodTab, {
+    Name = "Apple",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Apple'))()
+    end
+})
+
+AddButton(FoodTab, {
+    Name = "Cheese",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Cheese'))()
+    end
+})
+
+AddButton(FoodTab, {
+    Name = "Banana",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Banana'))()
+    end
+})
+
+AddButton(FoodTab, {
+    Name = "Chicken",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Chicken'))()
+    end
+})
+
+AddButton(FoodTab, {
+    Name = "Coffee",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Coffee'))()
+    end
+})
+
+AddButton(FoodTab, {
+    Name = "Medkit",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Medkit'))()
+    end
+})
+
+AddButton(FoodTab, {
+    Name = "Notebook",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Notebook'))()
+    end
+})
+
+-- Tab for Weapons
+local WeaponTab = NewTab({Name = "Weapons", Icon = "ImageIdHere"})
+
+AddButton(WeaponTab, {
+    Name = "Hammer",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Hammer'))()
+    end
+})
+
+AddButton(WeaponTab, {
+    Name = "Bat",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Bat'))()
+    end
+})
+
+AddButton(WeaponTab, {
+    Name = "Slingshot",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Slingshot'))()
+    end
+})
+
+AddButton(WeaponTab, {
+    Name = "Straw",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Straw'))()
+    end
+})
+
+-- Tab for Money
+local MoneyTab = NewTab({Name = "Money", Icon = "ImageIdHere"})
+
+AddButton(MoneyTab, {
+    Name = "CLICK FOR MONEY🤑",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/Tamachiru/AppleX/main/Get_Money'))()
+    end
+})
