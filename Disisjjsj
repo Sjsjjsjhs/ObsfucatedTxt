@@ -1,0 +1,160 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Darkmoonxhubscript/DarkLibV3/refs/heads/main/Source.luau"))()
+
+local Window = MakeWindow({
+    Title = "DarkLib V3",
+    SubTitle = "By DarkMoonHub",
+    Theme = "Dark",
+    Acrylic = true,
+    KeySystem = {
+        Active = false,
+        KeyTitle = "Key System",
+        KeyDescription = "Key System Description",
+        Keys = {"Key1", "Key2", "Key3"},
+        KeyLink = "pastebin.com/"
+    }
+})
+
+local Notify = NewNotify({
+    Title = "Reminder",
+    Description = "THIS ONLY WORKS FOR NOT IN-GAME AND SOME BUY STUFF",
+    Time = 10
+})
+
+-- Create the main Games Tab
+local Tab1 = NewTab({Name = "Games", Icon = "Home"})
+local Section1 = AddSection(Tab1, {Name = "Total Roblox Drama"})
+
+-- Teleportation Buttons
+AddButton(Tab1, {
+    Name = "First Door - Green Light Red Light",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(705.2848, 29.4045, -90.8958)
+        end
+    end
+})
+
+AddButton(Tab1, {
+    Name = "2nd Door",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(702.5939, 50.0568, -91.058)
+        end
+    end
+})
+
+AddButton(Tab1, {
+    Name = "Third Door",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(705.3472, 72.3777, -92.1277)
+        end
+    end
+})
+
+AddButton(Tab1, {
+    Name = "4th Door",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(706.9649, 94.6986, -92.1417)
+        end
+    end
+})
+
+AddButton(Tab1, {
+    Name = "Glass Door",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = CFrame.new(709.6994, 117.0136, -93.1062)
+        end
+    end
+})
+
+-- Speed Toggle
+local speedLoop
+AddToggle(Tab1, {
+    Name = "Speed Up",
+    Default = false,
+    Callback = function(value)
+        local player = game.Players.LocalPlayer
+        if player and player.Character and player.Character:FindFirstChild("Humanoid") then
+            if value then
+                speedLoop = game:GetService("RunService").Heartbeat:Connect(function()
+                    player.Character.Humanoid.WalkSpeed = 60
+                end)
+            else
+                if speedLoop then
+                    speedLoop:Disconnect()
+                end
+                player.Character.Humanoid.WalkSpeed = 16
+            end
+        end
+    end
+})
+
+-- Auto Clicker Toggle
+local function autoClickMiddleScreen()
+    while true do
+        local player = game.Players.LocalPlayer
+        if player then
+            local screenCenter = Vector2.new(
+                game:GetService("Workspace").CurrentCamera.ViewportSize.X / 2, 
+                game:GetService("Workspace").CurrentCamera.ViewportSize.Y / 2
+            )
+            local inputService = game:GetService("UserInputService")
+            inputService.InputBegan:Fire({
+                UserInputType = Enum.UserInputType.Touch,
+                Position = screenCenter
+            })
+        end
+        wait(0.1)
+    end
+end
+
+local autoClickLoopTugOfWar
+AddToggle(Tab1, {
+    Name = "Auto Clicker (Tug of War)",
+    Default = false,
+    Callback = function(value)
+        if value then
+            autoClickLoopTugOfWar = game:GetService("RunService").Heartbeat:Connect(autoClickMiddleScreen)
+        else
+            if autoClickLoopTugOfWar then
+                autoClickLoopTugOfWar:Disconnect()
+            end
+        end
+    end
+})
+
+-- Hitbox Expansion Toggle
+_G.HeadSize = 25
+_G.Disabled = true
+AddToggle(Tab1, {
+    Name = "Hitbox Expansion",
+    Default = false,
+    Callback = function(value)
+        _G.Disabled = not value
+    end
+})
+
+game:GetService('RunService').RenderStepped:Connect(function()
+    if not _G.Disabled then
+        for i, v in next, game:GetService('Players'):GetPlayers() do
+            if v.Name ~= game:GetService('Players').LocalPlayer.Name then
+                pcall(function()
+                    v.Character.Head.Size = Vector3.new(_G.HeadSize, _G.HeadSize, _G.HeadSize)
+                    v.Character.Head.Transparency = 1
+                    v.Character.Head.BrickColor = BrickColor.new("Red")
+                    v.Character.Head.Material = "Neon"
+                    v.Character.Head.CanCollide = false
+                    v.Character.Head.Massless = true
+                end)
+            end
+        end
+    end
+end)
